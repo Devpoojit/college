@@ -1,5 +1,7 @@
 package com.it.college.entities;
 
+import com.it.college.model.FacultySaveModel;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -22,4 +24,14 @@ public class Faculty extends User {
 
     @Column(name = "phone", nullable = false)
     private String phone;
+
+    public Faculty(FacultySaveModel facultySaveModel) {
+        this.setEmail(facultySaveModel.getEmail());
+        this.setPassword(facultySaveModel.getPassword());
+        this.setRole("ROLE_FACULTY");
+        this.setStatus(true);
+        this.name = facultySaveModel.getName();
+        this.branch = facultySaveModel.getBranch();
+        this.phone = facultySaveModel.getPhone();
+    }
 }

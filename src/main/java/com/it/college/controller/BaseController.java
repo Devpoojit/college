@@ -22,6 +22,6 @@ public class BaseController {
             String errorMessage = error.getDefaultMessage();
             errors.put(fieldName, errorMessage);
         });
-        return new ApiResponse(false, errors, "Validation Error", null);
+        return new ApiResponse(HttpStatus.OK, false, errors, "Validation Error");
     }
 }
